@@ -1,3 +1,5 @@
+// Rolling/src/components/MessageNote/MessageNote.jsx
+
 import React from 'react';
 import './MessageNote.css';
 
@@ -5,11 +7,13 @@ const MessageNote = ({ author, content, color, position, rotation, onNoteClick, 
 
     const delay = `${animationIndex * 0.15}s`;
 
-    // 1. position 값을 CSS 변수로 전달합니다.
     const style = {
         backgroundColor: color,
-        '--top': position.top,
-        '--left': position.left,
+
+        // 3. 픽셀(px) 값으로 'top'을 설정합니다.
+        top: `${position.top}px`,
+
+        left: position.left,
         '--note-rotation': `${rotation}deg`,
         '--animation-delay': delay,
     };
