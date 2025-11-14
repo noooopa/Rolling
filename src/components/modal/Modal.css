@@ -1,0 +1,104 @@
+/* Rolling/src/components/Modal/Modal.css */
+
+/* 모달 뒷배경 */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    /* 스크롤이 가능하도록 */
+    overflow-y: auto;
+    padding: 20px 0; /* 상하 여백 */
+}
+
+/* 모달 본문 */
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: zoomIn 0.3s ease-out;
+    /* 스크롤 시 모달이 상단에 붙도록 */
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.modal-author {
+    font-family: 'Gaegu', cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px dashed #eee;
+    padding-bottom: 10px;
+}
+
+/* 5. (신규) 모달 이미지 스타일 */
+.modal-image {
+    width: 100%; /* 모달 너비에 꽉 차게 */
+    height: auto; /* 이미지 비율 유지 */
+    border-radius: 8px; /* 이미지 모서리 둥글게 */
+    margin-top: 20px; /* 작성자 이름과 간격 */
+    object-fit: cover;
+    border: 1px solid #eee; /* 얇은 테두리 */
+}
+
+/* 모달 텍스트 내용 */
+.modal-body {
+    font-family: 'Gaegu', cursive;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    /* 스크롤은 이제 모달 자체가 아닌 뒷배경(backdrop)이 담당하므로
+      max-height를 제거하거나 여유 있게 줍니다.
+    */
+    margin-top: 20px;
+}
+
+/* 6. (신규) 모달 날짜 스타일 */
+.modal-date {
+    font-family: 'Gaegu', cursive;
+    font-size: 1.1rem;
+    color: #888; /* 연한 회색 */
+    text-align: right; /* 우측 정렬 */
+    margin-top: 25px; /* 본문과 간격 */
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0; /* 얇은 구분선 */
+}
+
+/* 닫기 버튼 */
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+.modal-close-btn:hover {
+    color: #333;
+}
+
+/* 모달 열릴 때 애니메이션 */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

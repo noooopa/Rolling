@@ -1,0 +1,30 @@
+/* 롤링페이퍼 보드(RollingPaperBoard) 스타일 */
+.board-container {
+    /* position: relative;가 핵심! MessageNote.js의 .note-container가 이 요소를 기준으로 위치합니다. */
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* 화면 전체 높이를 최소한으로 가짐 */
+
+    /* (선택 1) 코르크 보드 배경 이미지 사용 */
+    /* background-image: url('/images/corkboard.jpg');
+    background-size: cover;
+    background-position: center;
+    */
+
+    /* (선택 2) 간단한 색상 배경 */
+    background-color: #f7f3e8; /* 부드러운 베이지색 */
+
+    /* 내부 스크롤이 아닌 페이지 전체 스크롤을 사용하도록 */
+    overflow: hidden;
+    padding-bottom: 50px; /* 하단 여백 */
+}
+
+.board-title {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2.5rem;
+    font-family: 'Gaegu', cursive; /* (예시) 손글씨 폰트 */
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+

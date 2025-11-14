@@ -1,0 +1,28 @@
+/* BGM 플레이어 버튼 스타일 */
+.bgm-player-button {
+    position: fixed; /* 화면에 고정 */
+    bottom: 25px;    /* 하단에서 25px */
+    right: 25px;     /* 우측에서 25px */
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* 원형 버튼 */
+
+    background-color: #ffdeea; /* 핑크색 배경 */
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    font-size: 1.5rem; /* 이모지 크기 */
+    color: #333;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    /* 모달(100)보다는 낮고, 포스트잇(10)보다는 높게 설정 */
+    z-index: 90;
+}
+
+.bgm-player-button:hover {
+    transform: scale(1.1);
+    background-color: #ffcce0;
+}
