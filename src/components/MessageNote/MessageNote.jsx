@@ -1,24 +1,23 @@
 import React from 'react';
 import './MessageNote.css';
 
-const MessageNote = ({ author, content, color, position, rotation, onNoteClick, animationIndex }) => {
+const MessageNote = ({ author, content, color, position, rotation, onNoteClick, animationIndex, isFocused }) => {
 
-    // 3. 지연 시간을 계산합니다.
     const delay = `${animationIndex * 0.15}s`;
 
+    // 1. position 값을 CSS 변수로 전달합니다.
     const style = {
         backgroundColor: color,
-        top: position.top,
-        left: position.left,
-
-        // 4. 'transform'을 직접 설정하는 대신, CSS 변수로 값을 전달합니다.
+        '--top': position.top,
+        '--left': position.left,
         '--note-rotation': `${rotation}deg`,
         '--animation-delay': delay,
     };
 
+    const containerClasses = `note-container ${isFocused ? 'focused' : ''}`;
+
     return (
-        // 5. 'transform'과 'animationDelay'가 제거된 style 객체를 전달합니다.
-        <div className="note-container" style={style} onClick={onNoteClick}>
+        <div className={containerClasses} style={style} onClick={onNoteClick}>
             <div className="note-author-main">
                 {author}
             </div>

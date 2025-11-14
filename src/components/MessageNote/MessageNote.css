@@ -51,10 +51,57 @@
     color: #333;
 }
 
+/* ... @keyframes noteFadeIn ... */
+
+.note-container {
+    /* 6. CSS 변수를 사용해 데스크탑 위치 설정 */
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+
+    width: 220px;
+    height: 220px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: rotate(var(--note-rotation));
+    opacity: 0;
+    animation: noteFadeIn 0.5s ease-out forwards;
+    animation-delay: var(--animation-delay);
+}
+
+/* ... .note-container.focused, .note-container:hover ... */
+
+.note-author-main {
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+}
+
+/* ... 기존 스타일 숨김 처리 ... */
 
 
-/* (기존 스타일 숨김 처리) */
-/*
-.note-content { ... }
-.note-author { ... }
-*/
+/* 7. (신규) 768px 이하 모바일 화면을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+    .note-container {
+        /* 8. 'position: relative' 삭제! (absolute 유지) */
+
+        /* 9. (핵심) 모바일에서 포스트잇 크기 줄이기 */
+        width: 160px !important;
+        height: 160px !important;
+        padding: 15px !important;
+
+        /* 회전, 애니메이션 등은 데스크탑 설정 그대로 상속받음 */
+    }
+
+    .note-author-main {
+        font-size: 1.3rem; /* 모바일에서 닉네임 폰트 줄이기 */
+    }
+}

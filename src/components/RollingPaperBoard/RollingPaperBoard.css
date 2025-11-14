@@ -15,7 +15,31 @@
     background-color: #f7f3e8; /* 부드러운 베이지색 */
 
     /* 내부 스크롤이 아닌 페이지 전체 스크롤을 사용하도록 */
-    overflow: hidden;
+    overflow: hidden;/* ... 기존 .board-container, .board-title ... */
+
+
+    /* 5. (신규) 768px 이하 모바일 화면을 위한 미디어 쿼리 */
+    @media (max-width: 768px) {
+        .board-container {
+            /* 포스트잇을 2열 그리드로 변경 */
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2개의 동일한 너비의 컬럼 */
+            gap: 15px; /* 노트 사이의 간격 */
+            padding: 15px; /* 화면 좌우 여백 */
+
+            /* 데스크탑의 'overflow: hidden'을 덮어쓰기 */
+            overflow: visible;
+            min-height: 100vh;
+        }
+
+        .board-title {
+            font-size: 2rem; /* 모바일에서 타이틀 폰트 줄이기 */
+            padding: 20px 0;
+            margin-bottom: 0;
+            /* 그리드 2열을 모두 차지하도록 설정 */
+            grid-column: 1 / -1;
+        }
+    }
     padding-bottom: 50px; /* 하단 여백 */
 }
 
@@ -28,3 +52,43 @@
     margin-bottom: 20px;
 }
 
+/* 롤링페이퍼 보드(RollingPaperBoard) 스타일 */
+.board-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f7f3e8; /* 부드러운 베이지색 */
+    /* 데스크탑에서는 스크롤바가 보이지 않게 */
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+.board-title {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 2.5rem;
+    font-family: 'Gaegu', cursive;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+/* 768px 이하 모바일 화면 */
+@media (max-width: 768px) {
+    .board-container {
+        /* 2. (핵심) 20개 메시지를 위해 보드 높이를 4000px로 설정 */
+        height: 4000px;
+
+        /* 3. 'display: grid' 삭제! */
+
+        /* 4. 세로 스크롤이 가능하도록 overflow 수정 */
+        overflow: visible;
+        overflow-x: hidden; /* 가로 스크롤은 방지 */
+    }
+
+    .board-title {
+        font-size: 2rem;
+        padding: 20px 0;
+        margin-bottom: 0;
+        /* 5. 'grid-column' 삭제! */
+    }
+}

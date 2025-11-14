@@ -26,3 +26,14 @@
     transform: scale(1.1);
     background-color: #ffcce0;
 }
+
+/* 6. (신규) 768px 이하 모바일 화면을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+    .bgm-player-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
